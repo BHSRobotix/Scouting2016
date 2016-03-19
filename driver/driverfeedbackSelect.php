@@ -6,7 +6,6 @@ $allMatches = ($_GET["all"] == "true" || $_POST["all"] == "true");
 $query = "";
 if ($allMatches) {
     $query = "SELECT * FROM ".$matchesTable." WHERE eventkey = '" . $currEvent . "' ORDER BY matchnumber ASC;";
-    $allMatches = true;
 } else {
     $query = "SELECT * FROM ".$matchesTable." WHERE eventkey = '" . $currEvent . "' AND ( "
             . "redteam1 = '" . $ourTeamNum . "' OR redteam2 = '" . $ourTeamNum . "' OR redteam3 = '" . $ourTeamNum . "' OR "

@@ -2,6 +2,7 @@
 include "../includes/sessionCheck.php";
 include "../includes/globalVars.php";
 
+$allMatches = ($_GET["all"] == "true" || $_POST["all"] == "true");
 $query = "SELECT * FROM ".$matchesTable." WHERE eventkey = '" . $currEvent . "' ORDER BY matchnumber ASC;";
 
 ?>
@@ -21,14 +22,21 @@ form {
 <body>
     <?php include "../includes/userHeader.php" ?>
     <div class="container">
-        <div class="page-header"><h2>Select the Team and Match to Scout</h2></div>
+        <div class="page-header">
+            <?php if ($allMatches) { ?>
+                <h2>Select a Team and Match to Scout - All matches (<a href="matchscoutingSelect.php?all=false">see only current matches</a>)</h2>
+            <?php } else { ?>
+                <h2>Select a Team and Match to Scout - Current matches (<a href="matchscoutingSelect.php?all=true">see all</a>)</h2>
+            <?php } ?>
+        </div>
+        
         <?php
             $result = $db->query($query);
             $zeroRows = true;
 
             while ($row = mysqli_fetch_assoc($result)) {
                 $zeroRows = false;
-                if ($row["matchnumber"] >= $currMatchNumber) {
+                if ($allMatches || ($row["matchnumber"] >= $currMatchNumber)) {
             ?>
             <p>Match <?= $row["matchnumber"] ?></p>
             <p>
@@ -44,9 +52,9 @@ form {
             <?php
                 }
             }
-            if ($zeroRows) {
+            if ($zeroRows || $allMatches) {
             ?>  
-            <p class="alert alert-warning" role="alert">No matches in schedule (likely reason: no schedule released yet)</p>
+            <?php if ($zeroRows) { ?><p class="alert alert-warning" role="alert">No matches in schedule (likely reason: no schedule released yet)</p><?php } ?>
             <p>
                 <form action="matchscouting.php" method="post">
                     Manually choose a match and team:<br/>            

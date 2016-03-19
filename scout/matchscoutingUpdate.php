@@ -47,6 +47,10 @@ $query = "INSERT INTO ".$performancesTable." (matchnumber, eventkey, teamnumber,
 
 $result = $db->query($query);
 
+// Update the current match number too
+$queryUpdateMatchNum = "UPDATE ".$eventstatusTable." SET currentMatchNumber=".$db->quote($_POST['matchnumber'])." WHERE active='true';";
+$resultUpdateMatchNum = $db -> query($queryUpdateMatchNum);
+
 ?>
 <!DOCTYPE html>
 <html>

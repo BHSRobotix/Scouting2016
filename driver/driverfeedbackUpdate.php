@@ -28,6 +28,8 @@ $result = $db->query($query);
                 There was a problem with the database!
             <?php } ?>
         </p>
+    <p><a class="btn btn-lg btn-primary" href="driverfeedbackSelect.php">Give driver feedback on another team!</a></p>
     </div>
+
 </body>
 </html>

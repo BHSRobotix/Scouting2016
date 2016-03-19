@@ -29,7 +29,7 @@
       <p><a href="driver/driverfeedbackSelect.php" class="btn btn-block btn-info">Driver Feedback</a></p>
       <p><a href="reports/reportsMain.php" class="btn btn-block btn-warning">Reports</a></p>
       <?php if ($_SESSION['role'] == "admin") { ?><p><a href="admin/admin.php" class="btn btn-block btn-danger">Admin</a></p><?php } ?>
-            
+      <p><a href="logout.php" class="btn btn-block btn-default">Log Out</a></p>
   </div>
 
 </body>

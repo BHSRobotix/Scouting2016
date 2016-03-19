@@ -2,9 +2,9 @@
 include "../includes/sessionCheck.php";
 include "../includes/globalVars.php";
 
-$allMatches = false;
+$allMatches = ($_GET["all"] == "true" || $_POST["all"] == "true");
 $query = "";
-if ($_GET["all"] == "true" || $_POST["all"] == "true") {
+if ($allMatches) {
     $query = "SELECT * FROM ".$matchesTable." WHERE eventkey = '" . $currEvent . "' ORDER BY matchnumber ASC;";
     $allMatches = true;
 } else {
@@ -41,9 +41,9 @@ form {
         
         <div class="page-header">
             <?php if ($allMatches) { ?>
-                <h2>All matches (<a href="/reports/reportsMain.php?all=false">see only Devilbotz</a>)</h2>
+                <h2>All matches (<a href="driverfeedbackSelect.php?all=false">see only Devilbotz</a>)</h2>
             <?php } else { ?>
-                <h2>Devilbotz matches (<a href="/reports/reportsMain.php?all=true">see all</a>)</h2>
+                <h2>Devilbotz matches (<a href="driverfeedbackSelect.php?all=true">see all</a>)</h2>
             <?php } ?>
         </div>
 

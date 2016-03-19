@@ -132,27 +132,21 @@ h4 {
                 <br/><br/>
 
                 Did they <strong> shoot </strong> during <strong> autonomous</strong>? <br/>
-                <table>
-                <tr>
-                <td> </td>
-                <td>Attempts </td>
-                <td>Made </td>
-                </tr>
-                
-                <tr>
-                <td>Low Goal</td>
-                <td><span class="minus"></span><input type="number" name="autoShotLowAttempt" value="0"/><span class="plus"></span></td>
-                <td><span class="minus"></span><input type="number" name="autoShotLowSuccess" value="0"/><span class="plus"></span></td>
-                </tr>
-                
-                <tr>
-                <td>High Goal</td>
-                <td><span class="minus"></span><input type="number" name="autoShotHighAttempt" value="0"/><span class="plus"></span></td>
-                <td><span class="minus"></span><input type="number" name="autoShotHighSuccess" value="0"/><span class="plus"></span></td>
-                </tr>
+                <input type="radio" name="autoShoot" value="didntShoot" id="autoDidntShoot">
+                <label for= "autoDidntShoot"> No autonomous shot attempted </label>
+                <br/>
+                <input type="radio" name="autoShoot" value="missedLow" id="autoShootMissedLow">
+                <label for= "autoShootMissedLow"> They shot at the low goal and missed </label>
+                <br/>
+                <input type="radio" name="autoShoot" value="madeLow" id="autoShootMadeLow">
+                <label for= "autoShootMadeLow"> They shot at the low goal and scored </label>
+                <br/>
+                <input type="radio" name="autoShoot" value="missedHigh" id="autoShootMissedHigh">
+                <label for= "autoShootMissedHigh"> They shot at the high goal and missed </label>
+                <br/>
+                <input type="radio" name="autoShoot" value="madeHigh" id="autoShootMadeHigh">
+                <label for= "autoShootMadeHigh"> They shot at the high goal and scored </label>
 
-                </table> 
-                
                 <br/><br/>
                 
                 <h4> Tele-Op </h4>
@@ -192,20 +186,20 @@ h4 {
                 <table>
                 <tr>
                 <td> </td>
-                <td>Attempts </td>
                 <td>Made </td>
+                <td>Missed </td>
                 </tr>
                 
                 <tr>
                 <td>Low Goal</td>
-                <td><span class="minus"></span><input type="number" name="teleShotLowAttempt" value="0"/><span class="plus"></span></td>
                 <td><span class="minus"></span><input type="number" name="teleShotLowSuccess" value="0"/><span class="plus"></span></td>
+                <td><span class="minus"></span><input type="number" name="teleShotLowMissed" value="0"/><span class="plus"></span></td>
                 </tr>
                 
                 <tr>
                 <td>High Goal</td>
-                <td><span class="minus"></span><input type="number" name="teleShotHighAttempt" value="0"/><span class="plus"></span></td>
                 <td><span class="minus"></span><input type="number" name="teleShotHighSuccess" value="0"/><span class="plus"></span></td>
+                <td><span class="minus"></span><input type="number" name="teleShotHighMissed" value="0"/><span class="plus"></span></td>
                 </tr>
 
                 </table> 

@@ -2,6 +2,14 @@
 include "../includes/sessionCheck.php";
 include "../includes/globalVars.php";
 
+$autoLowGoalAttempts = ($_POST['autoShoot'] == "missedLow" || $_POST['autoShoot'] == "madeLow") ? 1 : 0;
+$autoLowGoalSuccess = ($_POST['autoShoot'] == "madeLow") ? 1 : 0;
+$autoHighGoalAttempts = ($_POST['autoShoot'] == "missedHigh" || $_POST['autoShoot'] == "madeHigh") ? 1 : 0;
+$autoHighGoalSuccess = ($_POST['autoShoot'] == "madeHigh") ? 1 : 0;
+
+$teleopLowShotsAttempted = intval($_POST['teleShotLowSuccess']) + intval($_POST['teleShotLowMissed']);
+$teleopHighShotsAttempted = intval($_POST['teleShotHighSuccess']) + intval($_POST['teleShotHighMissed']);
+
 $query = "INSERT INTO ".$performancesTable." (matchnumber, eventkey, teamnumber, "
         . " isFunctional, auto_reach, auto_defense_crossed, auto_shot_low_attempt, auto_shot_low_success, auto_shot_high_attempt, auto_shot_high_success, "
         . " tele_def_cross_lowbar, tele_def_cross_a_pc, tele_def_cross_a_cdf, tele_def_cross_b_moat, tele_def_cross_b_ramp, "
@@ -15,10 +23,10 @@ $query = "INSERT INTO ".$performancesTable." (matchnumber, eventkey, teamnumber,
         . $db->quote($_POST['isFunctional']) . "," 
         . $db->quote($_POST['autoReach']) . "," 
         . $db->quote($_POST['autoCross']) . "," 
-        . $db->quote($_POST['autoShotLowAttempt']) . "," 
-        . $db->quote($_POST['autoShotLowSuccess']) . "," 
-        . $db->quote($_POST['autoShotHighAttempt']) . "," 
-        . $db->quote($_POST['autoShotHighSuccess']) . "," 
+        . $db->quote($autoLowGoalAttempts) . "," 
+        . $db->quote($autoLowGoalSuccess) . "," 
+        . $db->quote($autoHighGoalAttempts) . "," 
+        . $db->quote($autoHighGoalSuccess) . "," 
         . $db->quote($_POST['telecrossLowBar']) . "," 
         . $db->quote($_POST['telecrossPortcullis']) . "," 
         . $db->quote($_POST['telecrossChevalDeFrise']) . ","
@@ -28,9 +36,9 @@ $query = "INSERT INTO ".$performancesTable." (matchnumber, eventkey, teamnumber,
         . $db->quote($_POST['telecrossSallyPort']) . "," 
         . $db->quote($_POST['telecrossRockWall']) . "," 
         . $db->quote($_POST['telecrossRoughTerrain']) . "," 
-        . $db->quote($_POST['teleShotLowAttempt']) . "," 
+        . $db->quote($teleopLowShotsAttempted) . "," 
         . $db->quote($_POST['teleShotLowSuccess']) . "," 
-        . $db->quote($_POST['teleShotHighAttempt']) . ","
+        . $db->quote($teleopHighShotsAttempted) . ","
         . $db->quote($_POST['teleShotHighSuccess']) . "," 
         . $db->quote($_POST['teleChallenged']) . "," 
         . $db->quote($_POST['teleScaled']) . ","

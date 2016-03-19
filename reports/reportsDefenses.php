@@ -49,10 +49,18 @@ $defenses = array("Portcullis"=>"tele_def_cross_a_pc", "Cheval de Frise"=>"tele_
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">Team <a href="reportsSingleTeam.php?tmNum=<?= $team1 ?>"><?= $team1 ?></a></th>
-                    <th scope="col">Team <a href="reportsSingleTeam.php?tmNum=<?= $team2 ?>"><?= $team2 ?></a></th>
-                    <th scope="col">Team <a href="reportsSingleTeam.php?tmNum=<?= $team3 ?>"><?= $team3 ?></a></th>
+                    <th scope="col" colspan="2">Team <a href="reportsSingleTeam.php?tmNum=<?= $team1 ?>"><?= $team1 ?></a></th>
+                    <th scope="col" colspan="2">Team <a href="reportsSingleTeam.php?tmNum=<?= $team2 ?>"><?= $team2 ?></a></th>
+                    <th scope="col" colspan="2">Team <a href="reportsSingleTeam.php?tmNum=<?= $team3 ?>"><?= $team3 ?></a></th>
                 </tr>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Auto</th>
+                    <th scope="col">Teleop</th>
+                    <th scope="col">Auto</th>
+                    <th scope="col">Teleop</th>
+                    <th scope="col">Auto</th>
+                    <th scope="col">Teleop</th>
             </thead>
             <tbody>
             
@@ -73,9 +81,9 @@ $defenses = array("Portcullis"=>"tele_def_cross_a_pc", "Cheval de Frise"=>"tele_
             ?>
                 <tr>
                     <td><?= $key ?></td>
-                    <td><?= $rowcAutoTm1['sumTotal'] ?> / <?= $rowcTeleTm1['sumTotal'] ?></td>
-                    <td><?= $rowcAutoTm2['sumTotal'] ?> / <?= $rowcTeleTm2['sumTotal'] ?></td>
-                    <td><?= $rowcAutoTm3['sumTotal'] ?> / <?= $rowcTeleTm3['sumTotal'] ?></td>
+                    <td><?= $rowcAutoTm1['sumTotal'] ?> </td><td> <?= $rowcTeleTm1['sumTotal'] ?></td>
+                    <td><?= $rowcAutoTm2['sumTotal'] ?> </td><td> <?= $rowcTeleTm2['sumTotal'] ?></td>
+                    <td><?= $rowcAutoTm3['sumTotal'] ?> </td><td> <?= $rowcTeleTm3['sumTotal'] ?></td>
                 </tr>
              <?php 
              }

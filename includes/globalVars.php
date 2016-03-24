@@ -6,6 +6,7 @@ $teamsTable = "teams";
 $usersTable = "users";
 $pitdataTable = "pitdata";
 $matchesTable = "matches";
+$bluealliancerankingsTable = "bluealliancerankings";
 $matchresultsTable = "matchresults";
 $driverfeedbackTable = "driverfeedback";
 $performancesTable = "performances";

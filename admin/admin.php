@@ -23,15 +23,16 @@ if ($_SESSION['role'] != "admin") {
     <?php include "../includes/userHeader.php" ?>
     <div class="container button-actions-set">
     
+        <p><a href="../reports/reportsBlueAllianceRanks.php?freshen=true" class="btn btn-block btn-primary">Update TheBlueAlliance Rankings</a></p>
+        <p><a href="updateCurrMatchNum.php" class="btn btn-block btn-info">Update Current Match Number</a></p>
+        <p><a href="createuser.php" class="btn btn-block btn-success">Create a DevilScoutz User</a></p>
         <?php if ($_SESSION['username'] == "ricko") { ?>
         <p><a href="loadteams.php?force=true&truncate=true" class="btn btn-block btn-warning">Reload Teams from The Blue Alliance</a></p>
         <p><a href="loadmatch.php?truncate=true" class="btn btn-block btn-warning">Reload Matches from The Blue Alliance</a></p>
         <?php } ?>
 <!--         <p><a href="loadmatchManual.php" class="btn btn-block btn-primary">Enter Match Schedule Manually</a></p> -->
 <!--         <p><a href="loadmatchresultsManual.php" class="btn btn-block btn-success">Enter Match Results Manually</a></p> -->
-        <p><a href="updateCurrMatchNum.php" class="btn btn-block btn-primary">Update Current Match Number</a></p>
-        <p><a href="postRankings.php" class="btn btn-block btn-success">Post Rankings</a></p>
-        <p><a href="createuser.php" class="btn btn-block btn-info">Create a DevilScoutz User</a></p>
+        <p><a href="postRankings.php" class="btn btn-block btn-danger">Post Rankings</a></p>
         
     </div>
 </body>

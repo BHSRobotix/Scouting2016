@@ -26,6 +26,7 @@ include "../includes/globalVars.php";
             <p><a href="reportsDefensesSelectTeams.php" class="btn btn-block btn-success">Defenses Report</a></p>
             <p><a href="reportsAllianceRank.php" class="btn btn-block btn-info">Alliance Selection Helper</a></p>
             <p><a href="reportsScoutsStats.php" class="btn btn-block btn-warning">DevilScoutz Stats</a></p>
+            <p><a href="reportsBlueAllianceRanks.php" class="btn btn-block btn-primary">TheBlueAlliance Rankings</a></p>
         </div>
 
     </div>

@@ -20,6 +20,7 @@ if ($_SESSION['role'] != "admin") {
             $msg .= $matchesTable . " TABLE truncated!<br/>";
         }
     
+        $numQualMatches = 0;
         foreach($matches as &$match) {
     
             $blueteam = $match['alliances']['blue'];
@@ -39,9 +40,15 @@ if ($_SESSION['role'] != "admin") {
                         .$db->quote(substr($blueteam['teams'][2],3)).");";
                 $msg .=  $query.'<br/><br/>';
                 $result = $db -> query($query);
+                
+                $numQualMatches++;
             }
         }
 
+        // Insert the number of qual matches into the events table
+        $query = "UPDATE ".$eventstatusTable." SET numQualMatches=".$db->quote($numQualMatches)." WHERE active='true';";
+        $result = $db -> query($query);
+        
         $msg .= "Successfully reloaded match data for url:".$url."<br/>";
     }
 }

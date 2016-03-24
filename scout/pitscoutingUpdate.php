@@ -65,8 +65,8 @@ function generate_image_thumbnail($source_image_path, $thumbnail_image_path) {
 }
 
 
-define('UPLOADED_IMAGE_DESTINATION', 'robopics_orig/');
-define('THUMBNAIL_IMAGE_DESTINATION', 'robopics/');
+define('UPLOADED_IMAGE_DESTINATION', '../robopics_orig/');
+define('THUMBNAIL_IMAGE_DESTINATION', '../robopics/');
 
 function process_image_upload($field, $evt, $team, $picType) {
     $temp_image_path = $_FILES[$field]['tmp_name'];

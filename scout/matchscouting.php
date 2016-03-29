@@ -31,6 +31,13 @@ if ($source != "schedule") {
         $inputErrorsMsg .= "The match number appears invalid.<br/>";    
     }
 }
+
+// Get team name from DB for niceness
+$queryTeamsTable = "SELECT * FROM ".$teamsTable." WHERE number = '" . $team . "';";
+$resultTeamsTable = $db->query($queryTeamsTable);
+$row = mysqli_fetch_assoc($resultTeamsTable);
+$teamName = $row['name'];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,7 +87,7 @@ h4 {
 
         <div class="page-header"><h2>Match Scouting</h2></div>
 
-        <div class="page-header"><h3>Team: <?= $team ?> ,  Match: <?= $matchnumber ?></h3></div>
+        <div class="page-header"><h3>Team: <?= $team ?> - <?= $teamName ?> <br/>Match: <?= $matchnumber ?></h3></div>
 
         <p>
             <form action="matchscoutingUpdate.php" method="post">
@@ -207,14 +214,14 @@ h4 {
                 <br/><br/>
                 
                 Did they <strong> challenge the tower</strong>? <br>
-                <input type="radio" name="teleChallenged" value="yes" id= "teleChallengedYes"> <label for= "teleChallengedYes"> Yes </label> 
-                <input type="radio" name="teleChallenged" value="no" id= "teleChallengedNo"> <label for= "teleChallengedNo"> No </label>
+                <input type="radio" name="teleChallenged" value="1" id= "teleChallengedYes"> <label for= "teleChallengedYes"> Yes </label> 
+                <input type="radio" name="teleChallenged" value="0" id= "teleChallengedNo"> <label for= "teleChallengedNo"> No </label>
 
                 <br/><br/>
                 
                 Did they <strong> scale the tower</strong>? <br>
-                <input type="radio" name="teleScaled" value="yes" id= "teleScaledYes"> <label for= "teleScaledYes"> Yes </label> 
-                <input type="radio" name="teleScaled" value="no" id= "teleScaledNo"> <label for= "teleScaledNo"> No </label>
+                <input type="radio" name="teleScaled" value="1" id= "teleScaledYes"> <label for= "teleScaledYes"> Yes </label> 
+                <input type="radio" name="teleScaled" value="0" id= "teleScaledNo"> <label for= "teleScaledNo"> No </label>
 
                 <br/><br/>
 
